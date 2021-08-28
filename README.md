@@ -1,72 +1,49 @@
-<h1 align="centre"> VictoriaMusic V5.5 🎵 </h1> 
+# How To Host
+The easiest way to deploy this Bot
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/QueenArzoo/Victoria"> <img src="https://img.shields.io/badge/Deploy%20To%20Heroku-red?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
 
-### A bot that can play music on Telegram Group and Channel Voice Chats
-#### POWERED BY [PYTGCALLS](https://github.com/pytgcalls/pytgcalls)
-### Available on telegram as [@VictoriaXbot](https://t.me/Victoriaxbot)
 
-<p align="center">
-  <img src="https://telegra.ph/file/dd04b1968f1bc1169d162.jpg">
-</p>
+- Support Channel :- [Awesome Bot](http://t.me/LaylaList)
 
-> ⭐️ Thanks to everyone who starred VictoriaMusic, That is the greatest pleasure we have !
+- Support Group :- [Awesome Support](http://t.me/AwesomeSupport)
 
-<h2> Features 🔥 </h2>
 
-- Thumbnail Support
-- Playlist Support
-- Current playback support
-- Showing track names when skipping
-- Zero downtime, Fully Stable
-- Youtube, Local & Saavn playback support
-- Settings panel
-- Control with buttons
-- Userbot auto join
-- Channel Music Play
-- Keyboard selection support for youtube play
+```
+Please fork this repository don't import code
+Made with Python3
+(C) @QueenArzoo
 
-## 🚀 Deployment
-
-### 💜 Heroku/Railway
-
-[![Deploy+on+Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/FreeModsApp/VictoriaMusic)
-
-[![Deploy+on+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/TeamVictoriaX/VictoriaMusic&envs=SESSION_NAME,BOT_TOKEN,BOT_USERNAME,BOT_NAME,SUPPORT_GROUP,PROJECT_NAME,ARQ_API_KEY,ASSISTANT_NAME,BG_IMAGE,UPDATES_CHANNEL,API_ID,API_HASH,SUDO_USERS,DURATION_LIMIT)
-
-• Get pyrogram (p)  `SESSION` from here:
-
-[![Run on Repl.it](https://repl.it/badge/github/SpEcHiDe/GenerateStringSession)](https://repl.it/@SpEcHiDe/GenerateStringSession)
-
-### ⚔ Self-hosting (For Devs) 
-```sh
-# Install Git First (apt-instll git)
-$ git clone https://github.com/TeamVictoriaX/VictoriaMusic
-$ cd VictoriaMusic
-# Upgrade sources
-# Install All Requirements 
-$ pip3 install -r requirements.txt
-# Rename example.env to local.env and fill
-$ npm i -g npm
-# Start Bot 
-$ python3 -m VictoriaMusic
 ```
 
-[Watch Tutorial on hosting VictoriaMusic on VPS](https://youtu.be/MdavNbazT7Q)
 
 
-### Commands for Group 🛠
-#### For all in group
+### Mandatory Vars.
+
+- Some Of The Mandatory Vars Are :-
+   - `API_ID` :  Give API_ID of your Alternate Telegram Account. also get from here [@APIInfoBot](https://t.me/APIinfoBot)
+   - `API_HASH` :  Give API_HASH of your Alternate Telegram Account. also get from here [@APIInfoBot](https://t.me/APIinfoBot)
+   - `STRING_NAME` :  Make a string session from [here](https://replit.com/@QueenArzoo/Victoria)
+   - `BOT_TOKEN` :  Make a Bot from [@Botfather](https://t.me/botfather) and fill it's bot token.
+   - `SUDO_USERS` :  Fill Userid of yhe users whom you want to be able to control the bot. You can add multiple id by giving a space in b/w each id.
+
+Get STRING_NAME from here:  [![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@QueenArzoo/Victoria)
+
+
+
+
+
+## Commands 🛠
 
 - `/play <song name>` - play song you requested
-- `/play <reply to audio>` - play replied file
+- `/dplay <song name>` - play song you requested via deezer
 - `/splay <song name>` - play song you requested via jio saavn
-- `/ytplay <song name>`: Directly play song via Youtube Music
 - `/playlist` - Show now playing list
 - `/current` - Show now playing
 - `/song <song name>` - download songs you want quickly
 - `/search <query>` - search videos on youtube with details
+- `/deezer <song name>` - download songs you want quickly via deezer
 - `/saavn <song name>` - download songs you want quickly via saavn
 - `/video <song name>` - download videos you want quickly
-
 
 #### Admins only.
 - `/player` - open music player settings panel
@@ -77,20 +54,13 @@ $ python3 -m VictoriaMusic
 - `/userbotjoin` - invite assistant to your chat
 - `/userbotleave` - remove assistant from your chat
 - `/admincache` - Refresh admin list
-- `/musicplayer [on/off]` - Enable/Disable Music Player
-
-#### Authorized users & Misc
-Authorized users can execute admin commands in authorized group
-- `/auth <reply to user>` - Authorize User
-- `/deauth <reply to user>` - DeAuthorize user
-- `/admincache` - Refesh admin list
-
 
 ### Commands for Channel Music Play 🛠
 For linked group admins only:
 - `/cplay <song name>` - play song you requested
 - `/cplay <reply to link>` - play replied youtube link
 - `/cplay <reply to audio>` - play replied file
+- `/cdplay <song name>` - play song you requested via deezer
 - `/csplay <song name>` - play song you requested via jio saavn
 - `/cplaylist` - Show now playing list
 - `/cccurrent` - Show now playing
@@ -104,11 +74,10 @@ For linked group admins only:
 
 If you donlt like to play in linked channel:
  1. Get your channel ID.
- 2. Rename your group to: `Channel Music:your_channel_id`
- 3. Add [@VictoriaXBot](t.me/VictoriaXbot) as Channel admin with full perms
- 4. Add helper to channel
+ 2. Rename your group to: Channel Music: your_channel_id
+ 3. Add @Victoria as Channel admin with full perms
+ 4. add helper to channel
  5. Simply send commands in your group.
-
 
 ### Commands for Sudo Users ⚔️
 - `/userbotleaveall` - remove assistant from all chats
@@ -118,48 +87,9 @@ If you donlt like to play in linked channel:
 #### Pmpermit
 - `.a` - approove someone to pm you
 - `.da` - disapproove someone to pm you
-- You can add a custom pmpermit message by adding var `PMMSG` and adding your message through env vars (for heroku, Settings/Edit vars)
-
 + Sudo Users can execute any command in any groups
 
-
-## Credits
-VictoriaMusic is a hardwork of many people. Many contributors and open source projects (Specially callsmusic projects) helped a lot in this. 
-
-#### Contributors
-- [InukaAsith](https://github.com/InukaAsith): Dev / Owner
-- [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev / Owner
-- [Technical-Hunter](https://github.com/Technical-Hunter): Dev / Owner
-- [Hellboy-OP](https://github.com/hellboy-op)
-- [Roj Serbest](http://github.com/rojserbest): Developer of callsmusic 
-- [DeshadeethThisarana](https://github.com/deshadeeth-thisarana): Dev
-- [Wrench](https://github.com/EverythingSuckz/): Dev
-- [Bemro](https://github.com/bemroofficial): Dev
-- [QueenArzoo](https://github.com/QueenArzoo): Dev
-- [Anjana-Ma](https://github.com/Anjana-Ma): Dev
-- [ImJanindu](https://github.com/ImJanindu): Dev
-- [azimazizov9150](https://github.com/azimazizov9150): Contributor
-
-
 #### Special Credits
-- [Roj Serbest](http://github.com/rojserbest): Callsmusic Developer
-
-This bot is based on the original work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork VictoriaMusic won t exist. 
-VictoriaMusic is a modified version of [Callsmusic](https://github.com/callsmusic/callsmusic) for fit the needs of some users
-
-- [StarkGang](https://github.com/StarkGang/)
-- [SpEcHiDe](https://github.com/SpEcHiDe/)
-- [The Hamker Cat](https://github.com/thehamkercat)
-- [Laky(for PyTgCalls)](https://github.com/Laky-64)
-- [Dan (for pyrogram)](https://github.com/delivrance)
-
-
-#### Open Source codes used in this project 
-- https://github.com/callsmusic/callsmusic : Source code used here as base
-- https://github.com/DevsExpo/FridayUserbot/blob/master/main_startup/helper_func/basic_helpers.py : Functions from line 275 to 351
-- https://github.com/TheHamkerCat/WilliamButcherBot/blob/dev/wbb/modules/music.py : From lines 170 to 178
-
-
-> This project exists thanks to these awesome developers and their codes and contributions.
-> And credits goes to all who supported, all who helped and API & environmental requirement package devs and all projects helped in making this project.
-> Special thanks to you for using bot
+- [Rojserbest](http://github.com/rojserbes): Callsmusic Developer
+- [Awesome Bot](http://t.me/LaylaList) Channel bot list
+- [Dev](http://t.me/HEROGAMERS1) Hero owner of this bot
