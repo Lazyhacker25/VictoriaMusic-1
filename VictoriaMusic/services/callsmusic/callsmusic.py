@@ -21,14 +21,15 @@ from pytgcalls import GroupCallFactory
 from VictoriaMusic.services.callsmusic import client
 from VictoriaMusic.services.queues import queues
 
-
 instances: Dict[int, GroupCallFactory] = {}
 active_chats: Dict[int, Dict[str, bool]] = {}
 
 
 def init_instance(chat_id: int):
     if chat_id not in instances:
-        instances[chat_id] = GroupCallFactory(client,outgoing_audio_bitrate_kbit=512).get_file_group_call()
+        instances[chat_id] = GroupCallFactory(
+            client, outgoing_audio_bitrate_kbit=512
+        ).get_file_group_call()
 
     instance = instances[chat_id]
 

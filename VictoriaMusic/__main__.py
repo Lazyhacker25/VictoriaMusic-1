@@ -18,10 +18,7 @@
 import requests
 from pyrogram import Client as Bot
 
-from VictoriaMusic.config import API_HASH
-from VictoriaMusic.config import API_ID
-from VictoriaMusic.config import BG_IMAGE
-from VictoriaMusic.config import BOT_TOKEN
+from VictoriaMusic.config import API_HASH, API_ID, BG_IMAGE, BOT_TOKEN
 from VictoriaMusic.services.callsmusic import run
 
 response = requests.get(BG_IMAGE)

@@ -16,17 +16,14 @@
 
 
 from asyncio import QueueEmpty
-from pyrogram import Client 
-from pyrogram import filters
+
+from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from VictoriaMusic.config import que
 from VictoriaMusic.function.admins import set
 from VictoriaMusic.helpers.channelmusic import get_chat_id
-from VictoriaMusic.helpers.decorators import authorized_users_only
-from VictoriaMusic.helpers.decorators import errors
-from VictoriaMusic.helpers.filters import command
-from VictoriaMusic.helpers.filters import other_filters
+from VictoriaMusic.helpers.decorators import authorized_users_only, errors
+from VictoriaMusic.helpers.filters import command, other_filters
 from VictoriaMusic.services.callsmusic import callsmusic
 from VictoriaMusic.services.queues import queues
 
@@ -102,10 +99,7 @@ async def skip(_, message: Message):
         if queues.is_empty(chat_id):
             await callsmusic.stop(chat_id)
         else:
-            await callsmusic.set_stream(
-                chat_id, 
-                queues.get(chat_id)["file_path"]
-            )
+            await callsmusic.set_stream(chat_id, queues.get(chat_id)["file_path"])
 
     qeue = que.get(chat_id)
     if qeue:
