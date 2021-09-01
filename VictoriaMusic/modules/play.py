@@ -907,8 +907,7 @@ async def ytplay(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ <b>Playing</b> here the song requested by {} via Youtube Music 😎".format(
-                message.from_user.mention()
+            caption="**Name :**`{title}`\n**Duration :**`{duration}`\n**Status :**`Playing`\n**Requested By :**{r_by.mention}"
             ),
         )
         os.remove("final.png")
@@ -1117,15 +1116,14 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
+                InlineKeyboardButton("Close", callback_data="cls"),
+                InlineKeyboardButton("Menu", callback_data="menu"),
             ],
             [
-                InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
-                InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
-            ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
-        ]
+                InlineKeyboardButton(text="Join Channel", url=f"https://t.me/Free_Mods_App"),
+               
+            ]
+           
     )
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
@@ -1145,7 +1143,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
             chat_id,
             photo="final.png",
-            caption=f"#⃣  Song requested by {r_by.mention} <b>queued</b> at position {position}!",
+            caption=f"<b>Queued</b> at position {position}!\n\n**Name :**`{title}`\n**Duration :**`{duration}`\n**Status :**`Playing`\n**Requested By :**{r_by.mention}",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -1168,6 +1166,6 @@ async def lol_cb(b, cb):
             chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"**🔖Name:**{title}\n**⏰Duration:**`{duration}`\n**💡Status:**`Playing`\n**🎶Requested By:**{r_by.mention}",
+            caption=f"**Name :**`{title}`\n**Duration :**`{duration}`\n**Status :**`Playing`\n**Requested By :**{r_by.mention}",
         )
         os.remove("final.png")
