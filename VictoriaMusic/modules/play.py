@@ -907,8 +907,7 @@ async def ytplay(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**Name :**`{title}`\n**Duration :**`{duration}`\n**Status :**`Playing`\n**Requested By :**{r_by.mention}"
-           
+            caption="**Name :**`{title}`\n**Duration :**`{duration}`\n**Status :**`Playing`\n**Requested By :**{r_by.mention}",
         )
         os.remove("final.png")
         return await lel.delete()
@@ -1114,16 +1113,15 @@ async def lol_cb(b, cb):
     dlurl = url
     dlurl = dlurl.replace("youtube", "youtubepp")
     keyboard = InlineKeyboardMarkup(
-        
-            [
-                InlineKeyboardButton("Close", callback_data="cls"),
-                InlineKeyboardButton("Menu", callback_data="menu"),
-            ],
-            [
-                InlineKeyboardButton(text="Join Channel", url=f"https://t.me/Free_Mods_App"),
-               
-            ]
-           
+        [
+            InlineKeyboardButton("Close", callback_data="cls"),
+            InlineKeyboardButton("Menu", callback_data="menu"),
+        ],
+        [
+            InlineKeyboardButton(
+                text="Join Channel", url=f"https://t.me/Free_Mods_App"
+            ),
+        ],
     )
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
