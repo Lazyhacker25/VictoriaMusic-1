@@ -119,7 +119,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     font = ImageFont.truetype("etc/font.otf", 32)
     draw.text((455, 550), f"Title: {title}", (51, 215, 255), font=font)
    draw.text((455, 550), f"By :Victoria Music", (51, 215, 255), font=font)
-    )
+    
     img.save("final.png")
     os.remove("temp.png")
     os.remove("background.png")
