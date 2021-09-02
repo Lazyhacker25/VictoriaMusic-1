@@ -751,7 +751,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ <b>Playing</b> here the song requested by {} via Youtube Music 😎".format(
+            caption="Name : `Locally Added`\nDuration : `{duration}`\n Status : `Playing`\nRequested By : {}".format(
                 message.from_user.mention()
             ),
         )
@@ -1115,10 +1115,10 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
+                InlineKeyboardButton("Close 🗑", callback_data="playlist"),
+                InlineKeyboardButton("Settings", callback_data="menu"),
             ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="Join Channel", url="https://t.me/Free_Mods_App")],
         ]
     )
     requested_by = useer_name
