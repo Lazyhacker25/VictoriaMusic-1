@@ -33,6 +33,34 @@ from VictoriaMusic.services.converter.converter import convert
 from VictoriaMusic.services.downloaders import youtube
 from VictoriaMusic.services.queues import queues
 
+def get_readable_time(seconds: int) -> str:
+    count = 0
+    ping_time = ""
+    time_list = []
+    time_suffix_list = ["s", "m", "h", "days"]
+
+    while count < 4:
+        count += 1
+        if count < 3:
+            remainder, result = divmod(seconds, 60)
+        else:
+            remainder, result = divmod(seconds, 24)
+        if seconds == 0 and remainder == 0:
+            break
+        time_list.append(int(result))
+        seconds = int(remainder)
+
+    for x in range(len(time_list)):
+        time_list[x] = str(time_list[x]) + time_suffix_list[x]
+    if len(time_list) == 4:
+        ping_time += time_list.pop() + ", "
+
+    time_list.reverse()
+    ping_time += ":".join(time_list)
+
+    return ping_time
+
+
 @Client.on_message(filters.command('ping', '!'))
 async def ping_msg_handler(_, m: Message):
     to_be_edited = await m.reply('Pinging..')
