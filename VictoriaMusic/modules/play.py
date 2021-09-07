@@ -616,60 +616,44 @@ async def play(_, message: Message):
         ydl_opts = {"format": "bestaudio/best"}
 
         try:
-            results = YoutubeSearch(query, max_results=5).to_dict()
+          results = YoutubeSearch(query, max_results=5).to_dict()
         except:
-            await lel.edit("Give me something to play")
+          await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**Select Your Song From Below List**\n\n"
+            toxxt = "**Select the song you want to play**\n\n"
             j = 0
-            useer = user_name
-            emojilist = [
-                "1",
-                "2",
-                "3",
-                "4",
-                "5",
-            ]
+            useer=user_name
+            emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
 
             while j < 5:
                 toxxt += f"{emojilist[j]} <b>Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
-                toxxt += f" ┣◈<b>Duration</b> - {results[j]['duration']}\n"
-                toxxt += f" ┣◈ <b>Views</b> - {results[j]['views']}\n"
-                toxxt += f" ┗◈ <b>Powered By Victoria 💖"
+                toxxt += f" ╚ <b>Duration</b> - {results[j]['duration']}\n"
+                toxxt += f" ╚ <b>Views</b> - {results[j]['views']}\n"
+                toxxt += f" ╚ <b>Channel</b> - {results[j]['channel']}\n\n"
 
-                j += 1
+                j += 1            
             koyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton(
-                            "1", callback_data=f"plll 0|{query}|{user_id}"
-                        ),
-                        InlineKeyboardButton(
-                            "2", callback_data=f"plll 1|{query}|{user_id}"
-                        ),
-                        InlineKeyboardButton(
-                            "3", callback_data=f"plll 2|{query}|{user_id}"
-                        ),
+                        InlineKeyboardButton("1️⃣", callback_data=f'plll 0|{query}|{user_id}'),
+                        InlineKeyboardButton("2️⃣", callback_data=f'plll 1|{query}|{user_id}'),
+                        InlineKeyboardButton("3️⃣", callback_data=f'plll 2|{query}|{user_id}'),
                     ],
                     [
-                        InlineKeyboardButton(
-                            "4", callback_data=f"plll 3|{query}|{user_id}"
-                        ),
-                        InlineKeyboardButton(
-                            "5", callback_data=f"plll 4|{query}|{user_id}"
-                        ),
+                        InlineKeyboardButton("4️⃣", callback_data=f'plll 3|{query}|{user_id}'),
+                        InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
                     ],
-                    [InlineKeyboardButton(text="Close 🗑", callback_data="cls")],
+                    [InlineKeyboardButton(text="❌", callback_data="cls")],
                 ]
-            )
-            await lel.edit(toxxt, reply_markup=koyboard, disable_web_page_preview=True)
+            )       
+            await lel.edit(toxxt,reply_markup=koyboard,disable_web_page_preview=True)
             # WHY PEOPLE ALWAYS LOVE PORN ?? (A point to think)
             return
             # Returning to pornhub
         except:
-             await lel.edit("Starting Player Directly...")
-
+            await lel.edit("No Enough results to choose.. Starting direct play..")
+                        
             # print(results)
             try:
                 url = f"https://youtube.com{results[0]['url_suffix']}"
