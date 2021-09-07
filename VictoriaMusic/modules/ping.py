@@ -33,6 +33,8 @@ from VictoriaMusic.services.converter.converter import convert
 from VictoriaMusic.services.downloaders import youtube
 from VictoriaMusic.services.queues import queues
 
+StartTime = time.time()
+
 def get_readable_time(seconds: int) -> str:
     count = 0
     ping_time = ""
