@@ -185,15 +185,15 @@ def r_ply(type_):
     mar = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("⏹", "leave"),
-                InlineKeyboardButton("⏸", "puse"),
-                InlineKeyboardButton("▶️", "resume"),
-                InlineKeyboardButton("⏭", "skip"),
+                InlineKeyboardButton("Stop", "leave"),
+                InlineKeyboardButton("Pause", "puse"),
+                InlineKeyboardButton("Resume", "resume"),
+                InlineKeyboardButton("Skip", "skip"),
             ],
             [
-                InlineKeyboardButton("Playlist 📖", "playlist"),
+                InlineKeyboardButton("Playlist", "playlist"),
             ],
-            [InlineKeyboardButton("❌ Close", "cls")],
+            [InlineKeyboardButton("Close 🗑", "cls")],
         ]
     )
     return mar
@@ -399,15 +399,15 @@ async def m_cb(b, cb):
         marr = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⏹", "leave"),
-                    InlineKeyboardButton("⏸", "puse"),
-                    InlineKeyboardButton("▶️", "resume"),
-                    InlineKeyboardButton("⏭", "skip"),
+                    InlineKeyboardButton("Stop", "leave"),
+                    InlineKeyboardButton("Pause", "puse"),
+                    InlineKeyboardButton("Resume", "resume"),
+                    InlineKeyboardButton("Skip", "skip"),
                 ],
                 [
-                    InlineKeyboardButton("Playlist 📖", "playlist"),
+                    InlineKeyboardButton("Playlist", "playlist"),
                 ],
-                [InlineKeyboardButton("❌ Close", "cls")],
+                [InlineKeyboardButton("Close 🗑", "cls")],
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -423,9 +423,9 @@ async def m_cb(b, cb):
                 await cb.message.edit("- No More Playlist..\n- Leaving VC!")
             else:
                 await callsmusic.set_stream(chet_id, queues.get(chet_id)["file"])
-                await cb.answer.reply_text("✅ <b>Skipped</b>")
+                await cb.answer.reply("✅ <b>Skipped</b>")
                 await cb.message.edit((m_chat, qeue), reply_markup=r_ply(the_data))
-                await cb.message.reply_text(
+                await cb.message.reply(
                     f"- Skipped track\n- Now Playing **{qeue[0][0]}**"
                 )
 
@@ -535,10 +535,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                    InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
+                    InlineKeyboardButton("Close 🗑", callback_data="playlist"),
+                    InlineKeyboardButton("Settings 🎛", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+                [InlineKeyboardButton(text="Join Channel", url="https://t.me/Free_Mods_App")],
             ]
         )
         file_name = get_file_name(audio)
@@ -621,46 +621,46 @@ async def play(_, message: Message):
             await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**Select the song you want to play**\n\n"
+            toxxt = "**Select Your Song From Below List**\n\n"
             j = 0
             useer = user_name
             emojilist = [
-                "1️⃣",
-                "2️⃣",
-                "3️⃣",
-                "4️⃣",
-                "5️⃣",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
             ]
 
             while j < 5:
                 toxxt += f"{emojilist[j]} <b>Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
-                toxxt += f" ╚ <b>Duration</b> - {results[j]['duration']}\n"
-                toxxt += f" ╚ <b>Views</b> - {results[j]['views']}\n"
-                toxxt += f" ╚ <b>Channel</b> - {results[j]['channel']}\n\n"
+                toxxt += f" ┣◈<b>Duration</b> - {results[j]['duration']}\n"
+                toxxt += f" ┣◈ <b>Views</b> - {results[j]['views']}\n"
+                toxxt += f" ┗◈ <b>Powered By Victoria 💖"
 
                 j += 1
             koyboard = InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton(
-                            "1️⃣", callback_data=f"plll 0|{query}|{user_id}"
+                            "1", callback_data=f"plll 0|{query}|{user_id}"
                         ),
                         InlineKeyboardButton(
-                            "2️⃣", callback_data=f"plll 1|{query}|{user_id}"
+                            "2", callback_data=f"plll 1|{query}|{user_id}"
                         ),
                         InlineKeyboardButton(
-                            "3️⃣", callback_data=f"plll 2|{query}|{user_id}"
+                            "3", callback_data=f"plll 2|{query}|{user_id}"
                         ),
                     ],
                     [
                         InlineKeyboardButton(
-                            "4️⃣", callback_data=f"plll 3|{query}|{user_id}"
+                            "4", callback_data=f"plll 3|{query}|{user_id}"
                         ),
                         InlineKeyboardButton(
-                            "5️⃣", callback_data=f"plll 4|{query}|{user_id}"
+                            "5", callback_data=f"plll 4|{query}|{user_id}"
                         ),
                     ],
-                    [InlineKeyboardButton(text="❌", callback_data="cls")],
+                    [InlineKeyboardButton(text="Close 🗑", callback_data="cls")],
                 ]
             )
             await lel.edit(toxxt, reply_markup=koyboard, disable_web_page_preview=True)
@@ -668,7 +668,7 @@ async def play(_, message: Message):
             return
             # Returning to pornhub
         except:
-            await lel.edit("No Enough results to choose.. Starting direct play..")
+             await lel.edit("Starting Player Directly...")
 
             # print(results)
             try:
@@ -825,7 +825,7 @@ async def ytplay(_, message: Message):
     for i in message.command[1:]:
         query += " " + str(i)
     print(query)
-    await lel.edit("🎵 <b>Processing</b>")
+    await lel.edit("🎵 <b>Downloading...</b>")
     ydl_opts = {"format": "bestaudio/best"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -1116,7 +1116,7 @@ async def lol_cb(b, cb):
         [
             [
                 InlineKeyboardButton("Close 🗑", callback_data="playlist"),
-                InlineKeyboardButton("Settings", callback_data="menu"),
+                InlineKeyboardButton("Settings 🎛", callback_data="menu"),
             ],
             [InlineKeyboardButton(text="Join Channel", url="https://t.me/Free_Mods_App")],
         ]
@@ -1139,7 +1139,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
             chat_id,
             photo="final.png",
-            caption=f"<b>Queued</b> at position {position}!\n\n**Name :**`{title}`\n**Duration :**`{duration}`\n**Status :**`Playing`\n**Requested By :**{r_by.mention}",
+            caption=f"<b>Queued</b> at position {position}!\n\n**Name :**`{title}`\n**Duration :**`{duration}`\n**Status :**`Queued`\n**Requested By :**{r_by.mention}",
             reply_markup=keyboard,
         )
         os.remove("final.png")
